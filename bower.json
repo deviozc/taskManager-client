@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",
-    "angular-scenario": "1.2.16"
+    "angular-scenario": "1.2.16",
+    "angular-resource": "~1.2.20"
   },
   "appPath": "app"
 }

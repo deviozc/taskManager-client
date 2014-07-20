@@ -1,5 +1,5 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE html>
+<html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -21,20 +21,31 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ui-sref="login">Sign In</a></li>
-          <li><a ui-sref="registration">Sign Up</a></li>
-        </ul>
+      <header class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav nav-pills pull-right">
+            <li class="active"><a ng-href="#">Home</a></li>
+            <li><a ui-sref="login">Sign In</a></li>
+            <li><a ui-sref="registration">Sign Up</a></li>
+          </ul>
+        </nav>
         <h3 class="text-muted">appointme</h3>
-      </div>
+      </header>
 
       <div ui-view></div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+      <footer>
+        <div class="container">
+        
+          <div class="row">
+            <div class="col-lg-12">
+              <p>
+                Copyright © 2013 <a href="#">[NAME]</a>. All Rights Reserved. Powered By [NAME development]
+              </p> 
+            </div>
+          </div>   
+        </div>
+      </footer>
     </div>
 
 

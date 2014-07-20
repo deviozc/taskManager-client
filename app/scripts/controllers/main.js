@@ -9,5 +9,5 @@
  */
 angular.module('appointmeApp')
   .controller('MainCtrl', function ($scope, $rootScope) {
-    $rootScope.pageTitle = 'Home';
+    $rootScope.pageTitle = 'tesdtHome';
   });

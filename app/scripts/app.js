@@ -36,4 +36,7 @@ angular
 				templateUrl: "views/user/login.html",
 				controller: 'AuthCtrl'
 			});
-	});
+	})
+.config(function($httpProvider) {
+      $httpProvider.defaults.withCredentials = true;
+    });

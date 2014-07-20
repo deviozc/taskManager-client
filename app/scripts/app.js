@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-	.module('appointmeApp', ['ngResource', 'ui.router'])
+	.module('appointmeApp', ['ngResource', 'ui.router','ngAnimate','toaster'])
 	.config(function($stateProvider, $urlRouterProvider) {
 
 		$urlRouterProvider.otherwise("/");
@@ -19,12 +19,7 @@ angular
 			.state('main', {
 				url: "/",
 				templateUrl: "views/main.html",
-				controller: 'MainCtrl',
-				resolve: {
-					checkUser: function(Auth){
-						return Auth.get();
-					}
-				}
+				controller: 'MainCtrl'
 			})
 			.state('registration', {
 				url: "/registration",

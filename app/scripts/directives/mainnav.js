@@ -12,8 +12,10 @@ angular.module('appointmeApp').directive('mainNav', function ($location, Auth, $
         link: function (scope, element, attrs) {
             Auth.init().get().$promise.then(function (result) {
                 if(result.status === 0) {
+                    Auth.setLoggedIn(true);
                     scope.isAuthed = true;
                 } else {
+                    Auth.setLoggedIn(false);
                     scope.isAuthed = false;
                 }
             });

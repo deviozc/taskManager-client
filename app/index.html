@@ -21,19 +21,8 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <header class="navbar navbar-inverse navbar-fixed-top">
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li class="active"><a ng-href="#">Home</a></li>
-            <li><a ui-sref="login">Sign In</a></li>
-            <li><a ui-sref="registration">Sign Up</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">appointme</h3>
-      </header>
-
+      <main-nav></main-nav>
       <div ui-view></div>
-
       <footer>
         <div class="container">
         
@@ -99,6 +88,7 @@
         <script src="scripts/controllers/task.js"></script>
         <script src="scripts/controllers/category.js"></script>
 
+        <script src="scripts/directives/mainnav.js"></script>
         <!-- endbuild -->
 </body>
 </html>

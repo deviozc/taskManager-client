@@ -9,6 +9,5 @@
  */
 angular.module('appointmeApp')
   .controller('UserCtrl', function ($scope, User) {
-
-    
+  	
   });

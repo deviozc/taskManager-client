@@ -1,1 +1,8 @@
-<p>This is the user/login view.</p>
+  <div class="wrapper">
+    <form class="form-signin" ng-submit="submit()" name="loginForm" novalidate>       
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" name="username" placeholder="Email Address" ng-model="user.email" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" placeholder="Password" ng-model="user.password" required=""/>  
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+    </form>
+</div>

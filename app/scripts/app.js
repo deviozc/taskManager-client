@@ -29,6 +29,6 @@ angular
 			.state('login', {
 				url: "/login",
 				templateUrl: "views/user/login.html",
-				controller: 'UserCtrl'
+				controller: 'AuthCtrl'
 			});
 	});

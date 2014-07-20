@@ -8,16 +8,6 @@
  * Factory in the appointmeApp.
  */
 angular.module('appointmeApp')
-  .factory('user', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
+  .factory('User', function ($resource, REST_API) {
+    return $resource(REST_API.BASE + REST_API.USER);
   });

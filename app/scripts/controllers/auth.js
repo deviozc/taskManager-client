@@ -8,11 +8,11 @@
  * Controller of the appointmeApp
  */
 angular.module('appointmeApp')
-  .controller('AuthCtrl', function ($scope, Auth) {
+  .controller('AuthCtrl', function ($scope, Auth, $rootScope) {
+  	$rootScope.pageTitle = 'Sign In';
     $scope.user = {};
-  	window.user = $scope.user;
   	$scope.submit = function(){
   		var auth = new Auth($scope.user);
   		auth.$save();
-  	}
+  	};
   });

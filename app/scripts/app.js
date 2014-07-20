@@ -19,7 +19,12 @@ angular
 			.state('main', {
 				url: "/",
 				templateUrl: "views/main.html",
-				controller: 'MainCtrl'
+				controller: 'MainCtrl',
+				resolve: {
+					checkUser: function(Auth){
+						return Auth.get();
+					}
+				}
 			})
 			.state('registration', {
 				url: "/registration",

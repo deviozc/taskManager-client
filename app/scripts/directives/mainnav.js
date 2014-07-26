@@ -5,11 +5,11 @@
  * @description
  * # mainNav
  */
-angular.module('appointmeApp').directive('mainNav', function ($location, Auth, $rootScope, toaster) {
+angular.module('appointmeApp').directive('mainNav', function ($location, Auth) {
     return {
         templateUrl: 'scripts/directives/partials/mainNav.html',
         restrict: 'E',
-        link: function (scope, element, attrs) {
+        link: function (scope) {
             Auth.init().get().$promise.then(function (result) {
                 if(result.status === 0) {
                     Auth.setLoggedIn(true);

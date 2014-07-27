@@ -37,21 +37,31 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
     };
     $scope.user = isAuth.data;
     $scope.capableTaskToAdd = {};
+
+    $scope.capableTaskToUpdate = $scope.user._tasker.capableTask.map(function(item){
+      var result = angular.copy(item);
+      result.name = item._categoryId.name;
+      result._categoryId = item._categoryId._id;
+      return result;
+    });
+
     $scope.removeCapableTask = function(index){
-        $scope.user._tasker.capableTask.splice(index, 1);
+        $scope.capableTaskToUpdate.splice(index, 1);
     };
-    
+
     angular.forEach( $scope.user._tasker.capableTask, function(item){
         item.name = _mapCategoryName(item._id);
     });
+
     $scope.addCapableTask = function () {
+
         var capableTask = {
-            _id: $scope.capableTaskToAdd.id,
+            _categoryId: $scope.capableTaskToAdd.id,
             name: _mapCategoryName($scope.capableTaskToAdd.id),
             description: $scope.capableTaskToAdd.description,
             rate: $scope.capableTaskToAdd.rate
         };
-        $scope.user._tasker.capableTask.push(capableTask);
+        $scope.capableTaskToUpdate.push(capableTask);
     };
     $scope.submit = function () {
         $q.when([$scope.updateUser(), $scope.updateTasker()], function (data) {
@@ -65,7 +75,12 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
         return user.$update();
     };
     $scope.updateTasker = function () {
-        var tasker = new Tasker($scope.user._tasker);
-        return tasker.$update();
+      $scope.user._tasker.capableTask = $scope.capableTaskToUpdate.map(function(item){
+        var result = angular.copy(item);
+        delete result.name;
+        return result;
+      });
+      var tasker = new Tasker($scope.user._tasker);
+      return tasker.$update();
     };
 });

@@ -9,7 +9,7 @@
  */
 angular.module('appointmeApp')
   .constant('REST_API', {
-        'BASE':'http://egging-bavius.codio.io:3000/',
+        'BASE':'http://localhost:3000/',
         'USER': 'user',
         'AUTH': 'session',
         'TASK': 'task',

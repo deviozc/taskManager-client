@@ -24,7 +24,7 @@
             </div>
         </div>
         <ul class="class=" list-group "">
-            <li class="list-group-item" ng-repeat="item in user._tasker.capableTask">
+            <li class="list-group-item" ng-repeat="item in capableTaskToUpdate">
                 <a class="label label-danger pull-right" ng-click="removeCapableTask($index)">Remove</a>
                 <h4>{{item.name}}</h4>
                 <p>{{item.description}}</p>

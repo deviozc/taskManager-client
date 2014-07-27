@@ -13,5 +13,6 @@ angular.module('appointmeApp')
         'USER': 'user',
         'AUTH': 'session',
         'TASK': 'task',
+      	'TASKER': 'tasker',
         'CATEGORY': 'category'
     });

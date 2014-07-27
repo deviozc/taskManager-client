@@ -5,6 +5,7 @@
       <li ng-class="{ active: isActive('/')}"><a ng-href="#">Home</a></li>
       <li ng-show="!isAuthed" ng-class="{ active: isActive('/login')}"><a ui-sref="login">Sign In</a></li>
       <li ng-show="!isAuthed" ng-class="{ active: isActive('/registration')}"><a ui-sref="registration">Sign Up</a></li>
+      <li ng-show="isAuthed" ng-class="{ active: isActive('/my-account')}"><a ui-sref="myAccount">Dashboard</a></li>
       <li ng-show="isAuthed"><a href="#" ng-click="logout()">Logout</a></li>
     </ul>
   </nav>

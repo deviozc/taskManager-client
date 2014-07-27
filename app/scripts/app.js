@@ -7,16 +7,28 @@ angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster
     $stateProvider.state('main', {
         url: '/',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        data: {
+            title: 'Home'
+        }
     }).state('registration', {
         url: '/registration',
         templateUrl: 'views/user/registration.html',
-        controller: 'UserRegistrationCtrl'
-    }).state('ccount', {
+        controller: 'UserRegistrationCtrl',
+        data: {
+            title: 'Registration'
+        }
+    }).state('myAccount', {
         url: '/my-account',
         templateUrl: 'views/user/my-account.html',
         controller: 'UserManageAccountCtrl',
+        data: {
+            title: 'Dashboard'
+        },
         resolve: {
+            categories: function(Category){
+                return Category.get().$promise;  
+            },
             isAuth: function (Auth) {
                 return Auth.init().get().$promise;
             }
@@ -24,7 +36,10 @@ angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster
     }).state('login', {
         url: '/login',
         templateUrl: 'views/user/login.html',
-        controller: 'AuthCtrl'
+        controller: 'AuthCtrl',
+        data: {
+            title: 'Login'
+        }
     });
 }).config(function ($httpProvider) {
     $httpProvider.defaults.withCredentials = true;

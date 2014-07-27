@@ -6,8 +6,8 @@
  * # AuthCtrl
  * Controller of the appointmeApp
  */
-angular.module('appointmeApp').controller('AuthCtrl', function ($scope, Auth, $rootScope, $location) {
-    $rootScope.pageTitle = 'Sign In';
+angular.module('appointmeApp').controller('AuthCtrl', function ($scope, Auth, $rootScope, $location, $state) {
+    $rootScope.pageTitle = $state.current.data.title;
     $scope.user = {};
     $scope.submit = function () {
         var auth = new(Auth.init())($scope.user);

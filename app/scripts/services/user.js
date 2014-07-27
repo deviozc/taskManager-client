@@ -9,5 +9,7 @@
  */
 angular.module('appointmeApp')
   .factory('User', function ($resource, REST_API) {
-    return $resource(REST_API.BASE + REST_API.USER);
+    return $resource(REST_API.BASE + REST_API.USER + '/:id', {id:'@_id'}, {
+              update: {method:'PUT', url:REST_API.BASE + REST_API.USER}
+          });
   });

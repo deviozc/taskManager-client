@@ -37,6 +37,13 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
     };
     $scope.user = isAuth.data;
     $scope.capableTaskToAdd = {};
+    $scope.removeCapableTask = function(index){
+        $scope.user._tasker.capableTask.splice(index, 1);
+    };
+    
+    angular.forEach( $scope.user._tasker.capableTask, function(item){
+        item.name = _mapCategoryName(item._id);
+    });
     $scope.addCapableTask = function () {
         var capableTask = {
             _id: $scope.capableTaskToAdd.id,

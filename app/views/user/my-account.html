@@ -10,12 +10,12 @@
         <div ng-if="user._tasker">
             <div class="form-group">
                 <label for="bio">Bio</label>
-                <input type="textarea" class="form-control" name="bio" placeholder="Bio" ng-model="user._tasker.bio"  />
+                <input type="textarea" class="form-control" name="bio" placeholder="Bio" ng-model="user._tasker.bio" />
             </div>
             <div class="form-group">
 
                 <label for="city">City</label>
-                <input type="text" class="form-control" name="city" placeholder="City" ng-model="user._tasker.city"  />
+                <input type="text" class="form-control" name="city" placeholder="City" ng-model="user._tasker.city" />
             </div>
             <div class="checkbox">
                 <label>
@@ -23,22 +23,25 @@
                 </label>
             </div>
         </div>
-        <div ng-repeat="item in user._tasker.capableTask" class="row">
-            <p>Task category : {{item.name}}</p>
-            <p>Task description : {{item.description}}</p>
-            <p>Task rate : {{item.rate}}/hr</p>
-        </div>
+        <ul class="class=" list-group "">
+            <li class="list-group-item" ng-repeat="item in user._tasker.capableTask">
+                <a class="label label-danger pull-right" ng-click="removeCapableTask($index)">Remove</a>
+                <h4>{{item.name}}</h4>
+                <p>{{item.description}}</p>
+                <p>{{item.rate}}/hr</p>
+            </li>
+        </ul>
         <hr>
         <div class="form-group">
 
-        <label>Add capiable task</label>
-        <select class="form-control" ng-model="capableTaskToAdd.id">
-            <optgroup ng-repeat="category in categories" label="{{category.name}}">
-                <option ng-repeat="child in category.children" value="{{child._id}}">{{child.name}}</option>
-            </optgroup>
-        </select>
-        <input type="textarea" class="form-control" name="description" placeholder="Description"  ng-model="capableTaskToAdd.description"/>
-        <input type="text" class="form-control" name="rate" placeholder="Rate"  ng-model="capableTaskToAdd.rate"/>
+            <label>Add capiable task</label>
+            <select class="form-control" ng-model="capableTaskToAdd.id">
+                <optgroup ng-repeat="category in categories" label="{{category.name}}">
+                    <option ng-repeat="child in category.children" value="{{child._id}}">{{child.name}}</option>
+                </optgroup>
+            </select>
+            <input type="textarea" class="form-control" name="description" placeholder="Description" ng-model="capableTaskToAdd.description" />
+            <input type="text" class="form-control" name="rate" placeholder="Rate" ng-model="capableTaskToAdd.rate" />
             <a class="btn btn-lg btn-primary btn-block" ng-click="addCapableTask()">Add capiable task</a>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>

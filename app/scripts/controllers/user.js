@@ -7,14 +7,12 @@
  * Controller of the appointmeApp
  */
 angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($scope, User, $rootScope, $state) {
-    $rootScope.pageTitle = $state.current.data.title;
     $scope.user = {};
     $scope.submit = function () {
         var user = new User($scope.user);
         user.$save();
     };
 }).controller('UserManageAccountCtrl', function ($state, $rootScope, $scope, isAuth, Tasker, categories, $q, toaster) {
-    $rootScope.pageTitle = $state.current.data.title;
     $scope.categories = {};
     var container = angular.copy(categories);
     angular.forEach(container.data, function (item) {

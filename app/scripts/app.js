@@ -27,7 +27,7 @@ angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster
         },
         resolve: {
             categories: function(Category){
-                return Category.get().$promise;  
+                return Category.get().$promise;
             },
             isAuth: function (Auth) {
                 return Auth.init().get().$promise;
@@ -52,5 +52,8 @@ angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster
                 toaster.pop('error', 'not enough privileges');
             }
         }
+    });
+    $rootScope.$on('$stateChangeSuccess', function(event, toState){
+      $rootScope.pageTitle = toState.data.title;
     });
 });

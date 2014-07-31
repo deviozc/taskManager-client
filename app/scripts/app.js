@@ -40,17 +40,30 @@ angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster
         data: {
             title: 'Login'
         }
+    }).state('search', {
+        url: '/search/:queryString',
+        templateUrl: 'views/tasker/search.html',
+        controller: 'SearchCtrl',
+        data: {
+            title: 'Search'
+        }
+    }).state('taskerDetail', {
+        url: '/tasker/:id',
+        templateUrl: 'views/tasker/detail.html',
+        controller: 'TaskerDetailCtrl',
+        data: {
+            title: 'Tasker Detail'
+        }
     });
 }).config(function ($httpProvider) {
     $httpProvider.defaults.withCredentials = true;
 }).run(function ($rootScope, toaster) {
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
         if(error.status === 401) {
-            if(error.data === '4011') {
-                toaster.pop('error', 'UnAuth');
-            } else if(error.data === '4012') {
-                toaster.pop('error', 'not enough privileges');
-            }
+            console.log(error);
+            toaster.pop('error', 'UnAuth');
+        }else if(error.status === 403) {
+            toaster.pop('error', 'not enough privileges');
         }
     });
     $rootScope.$on('$stateChangeSuccess', function(event, toState){

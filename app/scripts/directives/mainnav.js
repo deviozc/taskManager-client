@@ -19,9 +19,6 @@ angular.module('appointmeApp').directive('mainNav', function ($location, Auth) {
                     scope.isAuthed = false;
                 }
             });
-            scope.isActive = function (viewLocation) {
-                return viewLocation === $location.path();
-            };
             scope.logout = function () {
                 Auth.init().delete().$promise.then(function (result) {
                     if(result.status === 0) {

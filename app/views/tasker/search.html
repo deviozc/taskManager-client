@@ -1,0 +1,15 @@
+<div class="wrapper container">
+    <form role="form" name="searchForm" ng-submit="submit()">
+        <input type="text" class="form-control" name="query" placeholder="Search..." ng-model="query" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Find</button>
+    </form>
+    <p ng-if="taskCategories.length > 0">Possible Categories</p>
+    <ul ng-if="taskCategories.length > 0" ng-repeat="category in taskCategories">
+        <li>{{category.name}}</li>
+    </ul>
+
+    <p ng-if="taskers.length > 0">Taskers in the first Category</p>
+    <div class="list-group" ng-if="taskers.length > 0" ng-repeat="tasker in taskers">
+        <a ui-sref="taskerDetail({id:'{{tasker._id}}'})" class="list-group-item">{{ tasker.nickName }}</a>
+    </div>
+</div>

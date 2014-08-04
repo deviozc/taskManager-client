@@ -1,5 +1,5 @@
-<div class="wrapper container">
-    <form class="form-signin" role="form" ng-submit="submit()" name="loginForm" novalidate>
+<div class="wrapper">
+    <form class="form-signin" ng-submit="submit()" name="loginForm" novalidate>
         <h2 class="form-signin-heading">Update my account</h2>
 
         <div class="form-group">
@@ -23,10 +23,10 @@
                 </label>
             </div>
         </div>
-        <ul class="class=" list-group "">
-            <li class="list-group-item" ng-repeat="item in capableTaskToUpdate">
+        <ul class="class=" list-group >
+            <li class="list-group-item" ng-repeat="item in user._tasker.capableTask">
                 <a class="label label-danger pull-right" ng-click="removeCapableTask($index)">Remove</a>
-                <h4>{{item.name}}</h4>
+                <h4>{{item._categoryId.name}}</h4>
                 <p>{{item.description}}</p>
                 <p>{{item.rate}}/hr</p>
             </li>

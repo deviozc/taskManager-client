@@ -36,21 +36,26 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
     $scope.user = isAuth.data;
     $scope.capableTaskToAdd = {};
 
-    $scope.capableTaskToUpdate = $scope.user._tasker.capableTask.map(function(item){
-      var result = angular.copy(item);
-      result.name = item._categoryId.name;
-      result._categoryId = item._categoryId._id;
-      return result;
-    });
+    if(!!$scope.user._tasker){
+
+        $scope.capableTaskToUpdate = $scope.user._tasker.capableTask.map(function(item){
+            var result = angular.copy(item);
+            result.name = item._categoryId.name;
+            result._categoryId = item._categoryId._id;
+            return result;
+        });
+        angular.forEach( $scope.user._tasker.capableTask, function(item){
+            item.name = _mapCategoryName(item._id);
+        });
+
+    }
+    
 
     $scope.removeCapableTask = function(index){
         $scope.capableTaskToUpdate.splice(index, 1);
     };
 
-    angular.forEach( $scope.user._tasker.capableTask, function(item){
-        item.name = _mapCategoryName(item._id);
-    });
-
+    
     $scope.addCapableTask = function () {
 
         var capableTask = {

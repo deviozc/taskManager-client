@@ -1,29 +1,33 @@
-<div class="wrapper container">
-    <form class="form-signup" role="form" ng-submit="submit()" name="signupForm" novalidate>
-        <h2 class="form-signin-heading">Please sign up</h2>
+<div class="wrapper">
+    <form class="login-form"role="form" ng-submit="submit()" name="signupForm" novalidate>
+        <h2 class="form-signin-heading">Sign up</h2>
         
         
-        <div ng-class="{ 'has-error' : signupForm.username.$invalid && signupForm.username.$visited && !signupForm.username.$focused}">
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.username.$invalid && signupForm.username.$visited && !signupForm.username.$focused}">
             <input type="email" class="form-control" name="username" placeholder="Email Address" ng-model="user.email" ng-focused el-visited autofocus="" required/>
+            <label class="login-field-icon fui-mail" for="username"></label>
             <p ng-show="signupForm.username.$error.required && signupForm.username.$visited && !signupForm.username.$focused" class="help-block">Please enter an email address</p>
             <p ng-show="signupForm.username.$error.email && signupForm.username.$visited && !signupForm.username.$focused" class="help-block">Please enter a valid email address</p>
         </div>
 
 
-        <div ng-class="{ 'has-error' : signupForm.nickname.$invalid && signupForm.nickname.$visited && !signupForm.nickname.$focused}">
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.nickname.$invalid && signupForm.nickname.$visited && !signupForm.nickname.$focused}">
             <input type="text" class="form-control" name="nickname" placeholder="Nick Name" ng-model="user.nickName" ng-focused el-visited required />
+            <label class="login-field-icon fui-user" for="nickname"></label>
             <p ng-show="signupForm.nickname.$error.required && signupForm.nickname.$visited && !signupForm.nickname.$focused" class="help-block">Please enter a nick name</p>
         </div>
 
 
 
-        <div ng-class="{ 'has-error' : signupForm.password.$invalid && signupForm.password.$visited && !signupForm.password.$focused}">
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.password.$invalid && signupForm.password.$visited && !signupForm.password.$focused}">
             <input type="password" class="form-control" name="password" placeholder="Password" ng-model="user.password" ng-focused  el-visited required />
+            <label class="login-field-icon fui-lock" for="password"></label>
             <p ng-show="signupForm.password.$error.required && signupForm.password.$visited && !signupForm.password.$focused" class="help-block">Please enter your password</p>
         </div>
 
-        <div ng-class="{ 'has-error' : signupForm.confirmPassword.$invalid && signupForm.confirmPassword.$visited && !signupForm.confirmPassword.$focused}">
+        <div class="form-group" ng-class="{ 'has-error' : signupForm.confirmPassword.$invalid && signupForm.confirmPassword.$visited && !signupForm.confirmPassword.$focused}">
             <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" ng-model="user.confirmPassword" ng-focused  el-visited required nx-equal="user.password"/>
+            <label class="login-field-icon fui-lock" for="confirmPassword"></label>
             <p ng-show="signupForm.confirmPassword.$error.required && signupForm.confirmPassword.$visited && !signupForm.confirmPassword.$focused" class="help-block">Please enter your confirmed password</p>
             <p ng-show="signupForm.confirmPassword.$error.nxEqual && signupForm.confirmPassword.$visited && !signupForm.confirmPassword.$focused" class="help-block">Confirm password doesn't match passowrd</p>
         </div>

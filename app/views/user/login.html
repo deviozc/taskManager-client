@@ -1,17 +1,19 @@
 <div class="wrapper">
-    <form class="form-signin" ng-submit="submit()" name="loginForm" novalidate>
-        <h2 class="form-signin-heading">Please login</h2>
+    <form class="login-form" ng-submit="submit()" name="loginForm" novalidate>
+        <h2 class="form-signin-heading">Sign in</h2>
 
 
-        <div ng-class="{ 'has-error' : loginForm.username.$invalid && loginForm.username.$visited && !loginForm.username.$focused}">
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.username.$invalid && loginForm.username.$visited && !loginForm.username.$focused}">
             <input type="email" class="form-control" name="username" placeholder="Email Address" ng-model="user.email" el-visited ng-focused autofocus="" required/>
+            <label class="login-field-icon fui-mail" for="username"></label>
             <p ng-show="loginForm.username.$error.required && loginForm.username.$visited && !loginForm.username.$focused" class="help-block">Please enter an email address</p>
             <p ng-show="loginForm.username.$error.email && loginForm.username.$visited && !loginForm.username.$focused" class="help-block">Please enter a valid email address</p>
         </div>
 
 
-        <div ng-class="{ 'has-error' : loginForm.password.$invalid && loginForm.password.$visited && !loginForm.password.$focused}">
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && loginForm.password.$visited && !loginForm.password.$focused}">
             <input type="password" class="form-control" name="password" placeholder="Password" ng-focused ng-model="user.password" el-visited required/>
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
             <p ng-show="loginForm.password.$error.required && loginForm.password.$visited && !loginForm.password.$focused" class="help-block">Please enter your password</p>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid">Login</button>

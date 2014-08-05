@@ -1,8 +1,8 @@
-<div class="wrapper form-wrapper">
+<div class="wrapper form-wrapper container">
     <form class="login-form"role="form" ng-submit="submit()" name="signupForm" novalidate>
         <h2 class="form-signin-heading">Sign up</h2>
-        
-        
+
+
         <div class="form-group" ng-class="{ 'has-error' : signupForm.username.$invalid && signupForm.username.$visited && !signupForm.username.$focused}">
             <input type="email" class="form-control" name="username" placeholder="Email Address" ng-model="user.email" ng-focused el-visited autofocus="" required/>
             <label class="login-field-icon fui-mail" for="username"></label>
@@ -31,8 +31,8 @@
             <p ng-show="signupForm.confirmPassword.$error.required && signupForm.confirmPassword.$visited && !signupForm.confirmPassword.$focused" class="help-block">Please enter your confirmed password</p>
             <p ng-show="signupForm.confirmPassword.$error.nxEqual && signupForm.confirmPassword.$visited && !signupForm.confirmPassword.$focused" class="help-block">Confirm password doesn't match passowrd</p>
         </div>
-        
-        
+
+
         <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="signupForm.$invalid">Sign Up</button>
     </form>
 </div>

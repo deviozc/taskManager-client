@@ -1,5 +1,5 @@
 'use strict';
-angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster'])
+angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster','ngTouch'])
 .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     //

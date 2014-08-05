@@ -10,6 +10,7 @@
     "angular-resource": "~1.2.20",
     "angular-ui-router": "~0.2.10",
     "angular-animate": "~1.2.20",
+    "angular-touch": "~1.2.21",
     "AngularJS-Toaster": "~0.4.7",
     "flat-ui-official": "~2.1.3"
   },

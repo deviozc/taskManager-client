@@ -12,7 +12,7 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
         var user = new User($scope.user);
         user.$save();
     };
-}).controller('UserManageAccountCtrl', function ($state, $rootScope, $scope, isAuth, Tasker, categories, $q, toaster) {
+}).controller('UserManageAccountCtrl', function ($state, $rootScope, $scope, isAuth, User, Tasker, categories, $q, toaster) {
     $scope.categories = {};
     var container = angular.copy(categories);
     angular.forEach(container.data, function (item) {
@@ -35,6 +35,7 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
     };
     $scope.user = isAuth.data;
     $scope.capableTaskToAdd = {};
+
 
     if(!!$scope.user._tasker){
 
@@ -74,16 +75,19 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
         });
     };
     $scope.updateUser = function () {
-        var user = new Tasker($scope.user);
+        var user = new User($scope.user);
         return user.$update();
     };
     $scope.updateTasker = function () {
-      $scope.user._tasker.capableTask = $scope.capableTaskToUpdate.map(function(item){
-        var result = angular.copy(item);
-        delete result.name;
-        return result;
-      });
-      var tasker = new Tasker($scope.user._tasker);
-      return tasker.$update();
+        if(!$scope.user._tasker){
+            return;
+        }
+        $scope.user._tasker.capableTask = $scope.capableTaskToUpdate.map(function(item){
+            var result = angular.copy(item);
+            delete result.name;
+            return result;
+        });
+        var tasker = new Tasker($scope.user._tasker);
+        return tasker.$update();
     };
 });

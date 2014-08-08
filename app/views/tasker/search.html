@@ -1,7 +1,11 @@
-<div class="wrapper container">
-    <form role="form" name="searchForm" ng-submit="submit()">
-        <input type="text" class="form-control" name="query" placeholder="Search..." ng-model="query" />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Find</button>
+<div class="wrapper">
+    <form class="login-form" role="form" name="searchForm" ng-submit="submit()" novalidate>
+        <h2 class="form-signin-heading">Search tasker</h2>
+        <div class="form-group" ng-class="{ 'has-error' : searchForm.query.$invalid && searchForm.query.$visited && !searchForm.query.$focused}">
+            <input type="text" class="form-control" name="query" placeholder="Search..." ng-model="data.query" el-visited ng-focused autofocus="" required />
+            <p ng-show="searchForm.query.$error.required && searchForm.query.$visited && !searchForm.query.$focused" class="help-block">Please enter search term</p>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" ng-disabled="searchForm.$invalid" type="submit">Find</button>
     </form>
     <p ng-if="taskCategories.length > 0">Possible Categories</p>
     <ul ng-if="taskCategories.length > 0" ng-repeat="category in taskCategories">
@@ -13,3 +17,5 @@
         <a ui-sref="taskerDetail({id:'{{tasker._id}}'})" class="list-group-item">{{ tasker.nickName }}</a>
     </div>
 </div>
+
+

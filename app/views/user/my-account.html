@@ -1,10 +1,10 @@
-<div class="wrapper container">
-    <form class="form-signin" ng-submit="submit()" name="loginForm" novalidate>
-        <h2 class="form-signin-heading">Update my account</h2>
+<div class="wrapper">
+    <form class="login-form" ng-submit="submit()" name="profileForm" novalidate>
+        <h2 class="form-signin-heading">My profile</h2>
 
-        <div class="form-group">
-            <label for="nickName">Nick name</label>
-            <input type="text" class="form-control" name="nickName" placeholder="Nick Name" ng-model="user.nickName" autofocus="" />
+        <div class="form-group" ng-class="{ 'has-error' : profileForm.nickName.$invalid && profileForm.nickName.$visited && !profileForm.nickName.$focused}">
+            <input type="text" class="form-control" name="nickName" placeholder="Nick Name" ng-model="user.nickName" autofocus="" el-visited ng-focused required />
+            <p ng-show="profileForm.nickName.$error.required && profileForm.nickName.$visited && !profileForm.nickName.$focused" class="help-block">Please enter an nick name</p>
         </div>
 
         <div ng-if="user._tasker">

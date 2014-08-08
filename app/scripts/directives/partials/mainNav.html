@@ -7,10 +7,10 @@
 
                     <li ui-sref-active="active"><a ui-sref="main" class="gn-icon gn-icon-home">Home</a>
                     </li>
-                    <!--<li ui-sref-active="active"><a ui-sref="search">Search</a></li>-->
-                    <li >
-                        <a href="#" class="gn-icon gn-icon-myaccount">My Account</a>
-                        <ul class="gn-submenu">
+                    <li ui-sref-active="active"><a ui-sref="search" class="gn-icon gn-icon-search">Search</a></li>
+                    <li ui-sref-active="active" ng-show="isAuthed">
+                        <a ui-sref="myAccount" class="gn-icon gn-icon-myaccount">My Account</a>
+<!--                         <ul class="gn-submenu">
                             <li>
                                 <a class="gn-icon gn-icon-myaccount">Test</a>
                             </li>
@@ -20,7 +20,7 @@
                             <li>
                                 <a class="gn-icon gn-icon-myaccount">Test</a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
 
                     <li ng-show="!isAuthed" ui-sref-active="active"><a ui-sref="login" class="gn-icon gn-icon-login">Login</a>

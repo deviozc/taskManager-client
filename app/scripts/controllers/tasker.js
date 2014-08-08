@@ -11,8 +11,10 @@
 angular.module('appointmeApp').controller('SearchCtrl', function ($scope, $state, $stateParams, Tasker, toaster) {
     $scope.taskers = [];
     $scope.taskCategories = [];
+    $scope.data = {
+        query: ''
+    };
     var search = function(queryString){
-        console.log(queryString);
         Tasker.search({query: queryString}, function(data){
             $scope.taskers = data.data.taskers;
             $scope.taskCategories = data.data.categories;
@@ -28,8 +30,8 @@ angular.module('appointmeApp').controller('SearchCtrl', function ($scope, $state
 
 
     $scope.submit = function(){
-        search($scope.query);
-        $stateParams.queryString = $scope.query;
+        search($scope.data.query);
+        $stateParams.queryString = $scope.data.query;
         $state.go($state.current.name, $stateParams);
     }
 });

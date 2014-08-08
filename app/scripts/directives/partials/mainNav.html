@@ -1,7 +1,7 @@
 <ul id="gn-menu" class="gn-menu-main">
     <li class="gn-trigger">
         <a class="gn-icon gn-icon-menu" ng-class="{'gn-selected': isMenuOpen}" ng-mouseover="openIconMenu()" ng-mouseout="closeIconMenu()" ng-click="toggleMenu($event)"><span>Menu</span></a>
-        <nav class="gn-menu-wrapper" ng-mouseover="openMenu()" ng-class="{'gn-open-all': isMenuOpen, 'gn-open-part': isIconMenuOpen}">
+        <nav class="gn-menu-wrapper" ng-mouseover="openMenu()" ng-mouseleave="closeMenu()" ng-class="{'gn-open-all': isMenuOpen, 'gn-open-part': isIconMenuOpen}">
             <div class="gn-scroller">
                 <ul class="gn-menu">
 

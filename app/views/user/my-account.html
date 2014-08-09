@@ -35,11 +35,12 @@
             <div class="form-group">
 
                 <label>Add capable task</label>
-                <select class="form-control" ng-model="capableTaskToAdd.id">
+<!--                 <select class="form-control" ng-model="capableTaskToAdd.id">
                     <optgroup ng-repeat="category in categories" label="{{category.name}}">
                         <option ng-repeat="child in category.children" value="{{child._id}}">{{child.name}}</option>
                     </optgroup>
-                </select>
+                </select> -->
+                <select class="form-control" ng-model="capableTaskToAdd.id" ng-options="category.name group by category._parent for category in categories track by category._id"></select>
                 <input type="textarea" class="form-control" name="description" placeholder="Description" ng-model="capableTaskToAdd.description" />
                 <input type="text" class="form-control" name="rate" placeholder="Rate" ng-model="capableTaskToAdd.rate" />
                 <a class="btn btn-lg btn-primary btn-block" ng-click="addCapableTask()">Add capable task</a>

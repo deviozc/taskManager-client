@@ -13,17 +13,23 @@ angular.module('appointmeApp').controller('UserRegistrationCtrl', function ($sco
         user.$save();
     };
 }).controller('UserManageAccountCtrl', function ($state, $rootScope, $scope, isAuth, User, Tasker, categories, $q, toaster) {
-    $scope.categories = {};
+    $scope.categories = [];
     var container = angular.copy(categories);
+    var parents = {};
     angular.forEach(container.data, function (item) {
-        if(typeof item._parent === 'undefined') {
-            item.children = [];
-            $scope.categories[item._id] = item;
-        } else {
-            $scope.categories[item._parent] = $scope.categories[item._parent] || {};
-            $scope.categories[item._parent].children.push(item);
+        
+        if(!item._parent){
+            parents[item._id] = item;
         }
     });
+    angular.forEach(container.data, function(item){
+        if(!!item._parent){
+            console.log(container.data);
+            item._parent = parents[item._parent].name;
+            $scope.categories.push(item);
+        }
+    });
+    console.log(container.data);
     var _mapCategoryName = function (id) {
         var returnValue;
         angular.forEach(categories.data, function (item) {

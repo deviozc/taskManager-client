@@ -18,8 +18,8 @@
                 <input type="text" class="form-control" name="city" placeholder="City" ng-model="user._tasker.city" />
             </div>
             <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="hasVehicle" ng-model="user._tasker.hasVehicle" />Has vehicle
+                <label>Has vehicle
+                    <input type="checkbox" name="hasVehicle" ng-model="user._tasker.hasVehicle" />
                 </label>
             </div>
         
@@ -40,7 +40,9 @@
                         <option ng-repeat="child in category.children" value="{{child._id}}">{{child.name}}</option>
                     </optgroup>
                 </select> -->
-                <select select-picker ng-model="capableTaskToAdd.id" ng-options="category.name group by category._parent for category in categories track by category._id"></select>
+                <select select-picker ng-model="capableTaskToAdd.id" ng-options="category.name group by category._parent for category in categories track by category._id">
+                    <option value="" selected>Nothing Selected</option>
+                </select>
                 <input type="textarea" class="form-control" name="description" placeholder="Description" ng-model="capableTaskToAdd.description" />
                 <input type="text" class="form-control" name="rate" placeholder="Rate" ng-model="capableTaskToAdd.rate" />
                 <a class="btn btn-lg btn-primary btn-block" ng-click="addCapableTask()">Add capable task</a>

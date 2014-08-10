@@ -12,7 +12,7 @@
         <li>{{category.name}}</li>
     </ul>
 
-    <p ng-if="taskers.length > 0">Taskers in the first Category</p>
+    <p ng-if="taskers.length > 0">Taskers in the current Category</p>
     <div class="list-group" ng-if="taskers.length > 0" ng-repeat="tasker in taskers">
         <a ui-sref="taskerDetail({id:'{{tasker._id}}'})" class="list-group-item">{{ tasker.nickName }}</a>
     </div>

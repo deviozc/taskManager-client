@@ -23,16 +23,15 @@ angular.module('appointmeApp').controller('SearchCtrl', function ($scope, $state
             }
         });
     };
-    if(!!$stateParams.queryString){
-        console.log($stateParams.queryString);
-        search($stateParams.queryString);
+    if(!!$stateParams.query){
+        console.log($stateParams.query);
+        $scope.data.query = $stateParams.query;
+        search($stateParams.query);
     }
 
 
     $scope.submit = function(){
-        search($scope.data.query);
-        $stateParams.queryString = $scope.data.query;
-        $state.go($state.current.name, $stateParams);
+        $state.go($state.current.name, {query: $scope.data.query});
     }
 });
 angular.module('appointmeApp').controller('TaskerDetailCtrl', function ($stateParams, $scope, Tasker, toaster) {

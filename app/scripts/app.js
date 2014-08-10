@@ -41,7 +41,7 @@ angular.module('appointmeApp', ['ngResource', 'ui.router', 'ngAnimate', 'toaster
             title: 'Login'
         }
     }).state('search', {
-        url: '/search/:queryString',
+        url: '/search?query',
         templateUrl: 'views/tasker/search.html',
         controller: 'SearchCtrl',
         data: {

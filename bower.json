@@ -18,5 +18,14 @@
     "angular-mocks": "1.2.16",
     "angular-scenario": "1.2.16"
   },
+  "overrides": {
+    "flat-ui-official": {
+      "main": [
+        "js/bootstrap-select.js",
+        "js/flatui-checkbox.js",
+        "css/flat-ui.css"
+      ]
+    }
+  },
   "appPath": "app"
 }
